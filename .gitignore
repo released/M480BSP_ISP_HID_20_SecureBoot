@@ -1,0 +1,6 @@
+SampleCode/**/obj/
+SampleCode/**/lst/
+*.uvguix.*
+*.uvoptx
+Nu_Link_Driver.ini
+/output/

@@ -1,0 +1,17 @@
+LR_LDROM 0x00100000 0x00001000
+{
+    ER_VECTORS 0x00100000 FIXED 0x00000200
+    {
+        startup_M480.o (RESET, +First)
+    }
+    ER_CODE 0x00100200 FIXED 0x00000E00
+    {
+        *(InRoot$$Sections)
+        .ANY (+RO)
+    }
+    ; Mask ROM owns SRAM 0x2000C000..0x2000FFFF while ISP is active.
+    RW_IRAM 0x20000000 0x0000C000
+    {
+        .ANY (+RW +ZI)
+    }
+}

@@ -1,0 +1,18 @@
+; Keep the final 144 bytes for the Secure Boot information block.
+LR_APROM 0x00000000 0x0007FF70
+{
+    ER_VECTORS 0x00000000 FIXED 0x00000200
+    {
+        startup_M480.o (RESET, +First)
+    }
+    ; VECMAP replaces 0x00000000..0x000001FF during the LDROM handoff.
+    ER_CODE 0x00000200 FIXED 0x0007FD70
+    {
+        *(InRoot$$Sections)
+        .ANY (+RO)
+    }
+    RW_IRAM 0x20000000 0x00028000
+    {
+        .ANY (+RW +ZI)
+    }
+}
