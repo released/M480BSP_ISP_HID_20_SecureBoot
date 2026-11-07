@@ -4,3 +4,9 @@ SampleCode/**/lst/
 *.uvoptx
 Nu_Link_Driver.ini
 /output/
+# Local engineering records and publication settings.
+SELF_CHECK*.md
+CODEX_HANDOFF.md
+HANDOFF.md
+MANUAL_CLEANUP.md
+github_push.local.psd1

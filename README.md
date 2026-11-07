@@ -21,6 +21,19 @@
 4. 按 **SW2 至少 30 ms**，或在 **UART0 terminal 按數字 1（KEY1）**，重新連線認證。[按鍵與 terminal 設定](https://released.github.io/slide_Nuvoton_secure_boot_operation_M480/#entry-triggers)。
 5. 載入保留更新入口的新版 APROM，Programming **只勾 APROM**；成功後重置，確認新版執行並可再次進入。[後續更新流程](https://released.github.io/slide_Nuvoton_secure_boot_operation_M480/#repeat-update)。
 
-**注意事項：** 日常更新仍使用 LDROM 的 wrapper／USB ISR，維持 LDROM 不變。每版 APROM 均須保留更新入口與 linker 配置；入口需要 APP 可運行，單槽更新不提供斷電回復保證。
+**注意事項：**
+
+- 日常更新仍使用 LDROM 的 wrapper／USB ISR，維持 LDROM 不變。
+- 每版 APROM 均須保留更新入口與 linker 配置。
+- 觸發更新需要 APP 可運行。
+- 單槽更新不提供斷電回復保證。
 
 錯誤狀態與恢復限制見投影片的 [排查表](https://released.github.io/slide_Nuvoton_secure_boot_operation_M480/#troubleshooting)。
+
+## GitHub 維護
+
+- `github_push.bat --check`：檢查本專案的公開內容、遠端與 `main` 分支，不提交或推送。
+- `github_push.bat`：檢查通過後輸入 `PUSH`，提交並推送本專案。
+- 入口使用工作區公用 `push-project.ps1`。
+- 公用腳本位置由 `WEB_PUBLISH_ROOT`，或本機 `github_push.local.psd1` 的 `PublisherRoot` 指定。
+- 本機設定與工程紀錄不加入 Git。
